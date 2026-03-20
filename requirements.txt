@@ -1,0 +1,12 @@
+torch>=2.0.0
+torchvision
+numpy
+pandas
+scikit-learn
+tqdm
+wandb
+matplotlib
+h5py
+umap-learn
+scipy
+pathlib

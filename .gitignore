@@ -1,0 +1,51 @@
+# ── Scratchpad / archive (not for GitHub) ─────────────────────────────────────
+arxiv/
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ── Virtual environments ───────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+.env
+
+# ── Jupyter ────────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── Data & model weights ──────────────────────────────────────────────────────
+*.h5
+*.hdf5
+*.pth
+*.pt
+*.ckpt
+*.npz
+*.npy
+*.pkl
+*.pickle
+input_embeddings/
+output/
+
+# ── Weights & Biases ──────────────────────────────────────────────────────────
+wandb/
+
+# ── UMAP / plot outputs ───────────────────────────────────────────────────────
+umap_plots/
+*.png
+*.pdf
+*.svg
+
+# ── OS artefacts ──────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+PON
+panda_split
