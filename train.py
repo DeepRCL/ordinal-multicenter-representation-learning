@@ -249,6 +249,7 @@ def main():
     p.add_argument("--poisson-alpha", default=0.75, type=float, help="Alpha for Poisson Focal Loss")
     p.add_argument("--poisson-gamma", default=2.0, type=float, help="Gamma for Poisson Focal Loss")
     p.add_argument("--ordinal-weight", default=0.1, type=float, help="Weight for ordinal penalty in Ordinal CE Loss")
+    p.add_argument("--embedding-size", default=512, type=int, help="Dimension of the slide embedding z")
     args = p.parse_args()
 
     set_seed(args.seed)
@@ -308,7 +309,7 @@ def main():
     # Model (UNI Methods config)
     model = ABMILISUP(
         input_dim=1536, num_classes=6,
-        proj_dim=512, attn_hidden=384,
+        proj_dim=args.embedding_size, attn_hidden=384,
         p_input_dropout=0.10, p_mid_dropout=0.25,
     ).to(device)
 
@@ -330,7 +331,7 @@ def main():
             config={
                 **vars(args),
                 "model": "Gated-ABMIL",
-                "proj_dim": 512, "attn_hidden": 384,
+                "proj_dim": args.embedding_size, "attn_hidden": 384,
                 "p_input_dropout": 0.10, "p_mid_dropout": 0.25,
             },
         )
@@ -428,7 +429,7 @@ def main():
     if best_state_qwk is not None:
         best_qwk_model = ABMILISUP(
             input_dim=1536, num_classes=6,
-            proj_dim=512, attn_hidden=384,
+            proj_dim=args.embedding_size, attn_hidden=384,
             p_input_dropout=0.10, p_mid_dropout=0.25,
         ).to(device)
         best_qwk_model.load_state_dict(best_state_qwk["model"])
