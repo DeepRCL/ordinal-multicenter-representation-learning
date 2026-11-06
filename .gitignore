@@ -51,3 +51,6 @@ PON
 panda_split
 linear_probe_results/
 linear_probe_results2/
+
+# README figures
+!assets/*.png
